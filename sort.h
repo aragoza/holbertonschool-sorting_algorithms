@@ -1,11 +1,6 @@
 #ifndef _SORT_H_
 #define _SORT_H_
 
-<<<<<<< HEAD
-#include <stddef.h>
-
-=======
->>>>>>> c2ef1b1 (necessary file for the project algorithm)
 /**
  * struct listint_s - Doubly linked list node
  *
@@ -20,13 +15,11 @@ typedef struct listint_s
     struct listint_s *next;
 } listint_t;
 
+
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 
-/* Ilan (0) */
-void bubble_sort(int *array, size_t size);
 
-<<<<<<< HEAD
 void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
@@ -36,8 +29,4 @@ void _swap(int *a, int *b);
 int lomutopartition(int array[], int low, int high);
 void quicksortrange(int array[], size_t low, size_t high, size_t size);
 
-=======
-void selection_sort(int *array, size_t size);
-
->>>>>>> c2ef1b1 (necessary file for the project algorithm)
 #endif /** _SORT_H_ */
