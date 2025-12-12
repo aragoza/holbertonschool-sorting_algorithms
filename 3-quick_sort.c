@@ -57,7 +57,7 @@ int lomutopartition(int array[], int low, int high)
  *
  */
 
-void quicksortrange(int array[], size_t low, size_t high, size_t size)
+void quicksortrange(int array[], int low, int high, size_t size)
 {
 	int i;
 
@@ -66,11 +66,9 @@ void quicksortrange(int array[], size_t low, size_t high, size_t size)
 		i = lomutopartition(array, low, high);
 		print_array(array, size);
 
-		if (i > 0)
-			quicksortrange(array, low, i - 1, size);
+		quicksortrange(array, low, i - 1, size);
 		quicksortrange(array, i + 1, high, size);
 	}
-
 }
 
 /**
@@ -86,6 +84,6 @@ void quick_sort(int *array, size_t size)
 {
 	if (size > 1)
 	{
-		quicksortrange(array, 0, size - 1, size);
+		quicksortrange(array, 0, (int)size - 1, size);
 	}
 }
