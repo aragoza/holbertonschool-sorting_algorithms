@@ -9,9 +9,9 @@
  * no return because void output
  */
 
-void _swap(char *a, char *b)
+void _swap(int *a, int *b)
 {
-	char *temp;
+	int temp;
 
 	temp = *a;
 	*a = *b;
@@ -19,76 +19,73 @@ void _swap(char *a, char *b)
 }
 
 /**
+ * lomutopartition - do partition and change the pivot if necessary
  *
+ * @array: the array
+ * @low: the lower index
+ * @high: the higher index to compare aka the pivot
  *
- *
- *
- *
- *
- *
- *
- *
+ * Return: (i + 1) index of the pivot
  */
 
-int lomutopartition(int arr[], int low, int high)
+int lomutopartition(int array[], int low, int high)
 {
-	int pivot, start, end, k, i;
+	int pivot = array[high];
+	int i = low - 1;
+	int j;
 
-	pivot = arr[low];
-	start = low;
-	end = high;
-	k = high;
-
-	for (i = high; i > low; i--)
+	for (j = low; j < high; j++)
 	{
-		if (arr[i] > pivot)
-			_swap(&arr[i], &arr[k]);
+		if (array[j] < pivot)
+		{
+			i++;
+			_swap(&array[i], &array[j]);
+		}
 	}
 
-	return (k);
+	_swap(&array[i + 1], &array[high]);
+	return (i + 1);
 }
 
 /**
+ * quicksortrange - sort recursively with quick sort
  *
- *
- *
- *
- *
- *
+ * @array: The array
+ * @low: The starting index
+ * @high: The ending index
+ * @size: The total size of the array (used for printing).
  *
  */
 
-void quicksortrange(int arr[], size_t low, size_t high)
+void quicksortrange(int array[], size_t low, size_t high, size_t size)
 {
-	size_t i;
+	int i;
 
 	if (low < high)
 	{
-		i = lomutopartition(arr, low, high);
-		
+		i = lomutopartition(array, low, high);
+		print_array(array, size);
+
 		if (i > 0)
-			quicksortrange(arr, low, i-1);
-		quicksortrange(arr, i+1, high)
+			quicksortrange(array, low, i - 1, size);
+		quicksortrange(array, i + 1, high, size);
 	}
 
 }
 
 /**
+ * quick_sort - Sorts an array of integers in ascending order
  *
+ * @array: The array to sort.
+ * @size: The size of the array.
  *
- *
- *
- *
- *
- *
- *
- *
+ * no return because void output
  */
 
 void quick_sort(int *array, size_t size)
 {
 	if (size > 1)
 	{
-		quick_sort(arr, 0, size-1);
+		quicksortrange(array, 0, size - 1, size);
 	}
 }
