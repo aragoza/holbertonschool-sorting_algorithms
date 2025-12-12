@@ -5,13 +5,16 @@
  * @array: Array
  * @size: Size of the array
  */
+
 void bubble_sort(int *array, size_t size)
 {
 	unsigned long int i, j;
 	unsigned long int temp;
 
 	for (i = 0; i < size; i++)
+	{
 		for (j = 0; j < (size - i - 1); j++)
+		{
 			if (array[j] > array[j + 1])
 			{
 				temp = array[j];
@@ -21,4 +24,6 @@ void bubble_sort(int *array, size_t size)
 
 				print_array(array, size);
 			}
+		}
+	}
 }
