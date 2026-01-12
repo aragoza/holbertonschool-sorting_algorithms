@@ -1,1 +1,1 @@
-# holbertonschool-simple_shell
+# holbertonschool-chatgpt-introduction
